@@ -14,13 +14,6 @@ echo "Running logwatch. You should receive an email like 'Logwatch for $HOSTNAME
 read -p "Opening crontab now. Prepare to add '29 6 * * * /usr/sbin/logwatch'..."
 crontab -e
 
-rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
-yum install fail2ban -y
-cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
-read -p "Opening fail2ban config now. You may want to disable ssh-iptables"
-vi /etc/fail2ban/jail.local
-service fail2ban restart
-
 useradd $USER
 passwd $USER
 mkdir /home/$USER
